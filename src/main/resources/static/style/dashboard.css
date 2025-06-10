@@ -1,0 +1,191 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--color-primary-mid);
+    color: var(--color-bg);
+    gap: 1rem;
+    font-size: 0.8rem;
+    height: 10vh;
+}
+
+.header_dark {
+    background-color: var(--color-sidebar-bg);
+}
+
+
+body{
+    height: 100%;
+}
+
+nav {
+    gap: 2rem;
+    animation: fadeInUp 0.5s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+main {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-sidebar-bg);
+    height: 90vh;
+}
+
+.content_header_nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+
+.menu_light {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--color-sidebar-bg);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 1000;
+    color: var(--color-slidebar-text);
+}
+
+
+.menu_light.active {
+    display: flex;
+}
+
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+
+.close_btn {
+    background-image: var(--icon-close);
+    cursor: pointer;
+}
+
+
+.close_btn:hover {
+    background-image: var(--icon-close);
+}
+
+.menu-toggle {
+    background-image: var(--icon-menu);
+    cursor: pointer;
+}
+
+.user-icon {
+    background-image: var(--icon-user);
+}
+
+
+.home_icon {
+    background-image: var(--icon-home);
+}
+
+
+.icon_sun {
+    background-image: var(--icon-sun);
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+}
+
+
+.theme_icon {
+    background-image: var(--icon-theme);
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+}
+
+.moon_icon:hover {
+    background-image: var(--icon-moon);
+}
+
+
+.div_register {
+    color: var(--color-text);
+    width: 80vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.big_inputs {
+  width: 100%;
+  height: 50%;
+  padding: 1rem;
+  border: 1px solid var(--color-shadow);
+  border-radius: 10px;
+  background-color: var(--color-input-bg);
+  caret-color: var(--color-text);
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-text);
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.big_inputs:focus {
+  outline: none;
+  border-color: #ef882a;
+  box-shadow: 0 0 0 3px rgba(239, 136, 42, 0.3);
+  background-color: var(--color-sidebar-bg);
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientScroll {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+

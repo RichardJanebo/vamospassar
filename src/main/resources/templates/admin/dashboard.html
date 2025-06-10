@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="theme-light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="style/dashboard-admin.css">
+</head>
+
+<body>
+<header id="header">
+    <div class="icon menu-toggle "></div>
+    <div>
+        <h1>Admin</h1>
+    </div>
+    <div id="btn_tema" class="icon theme_icon"></div>
+</header>
+
+<main>
+    <nav id="menu" class="menu_light">
+        <div class="content_header_nav">
+            <div class="icon close_btn"></div>
+            <div class="icon user-icon"></div>
+            <h2 id="user_name">Olá, Richard</h2>
+        </div>
+
+        <ul>
+            <li><i class="icon home_icon"></i> Início</li>
+        </ul>
+    </nav>
+
+    <div class="div_register">
+        <button class="default_btn" id="btn_cadastrar">Cadastrar questões</button>
+
+        <label for="id_cad_question">Questão</label>
+        <textarea id="id_cad_question" class="big_inputs"></textarea>
+
+        <label for="id_cad_response">Resposta</label>
+        <textarea id="id_cad_response" class="big_inputs"></textarea>
+    </div>
+</main>
+
+<script src="js/dashboard-admin.js"></script>
+</body>
+
+</html>

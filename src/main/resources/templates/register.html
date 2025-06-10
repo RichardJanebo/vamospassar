@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Extensão | Popup</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/forms.css">
+    <link rel="stylesheet" href="style/mediaquery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <section id="login">
+        <div id="imagem">
+        </div>
+        <div id="formulario">
+            <form id="my_form">
+                <div class="campo">
+
+                    <label for="ip_name">Nome</label>
+                    <input id="ip_name" type="text" name="name" placeholder="Seu nome completo"
+                           pattern="^[A-Za-zÀ-ÿ\s]{2,60}$"
+                           title="O nome deve conter apenas letras e espaços (2 a 50 caracteres)"
+                           required maxlength="50">
+                </div>
+
+
+                <div class="campo">
+                    <label for="ip_email">Email</label>
+                    <input id="ip_email" type="email" name="email" placeholder="exemplo@gmail.com"
+                           required maxlength="100">
+                </div>
+
+                <div class="campo">
+
+                    <label for="ip_tel">Tel</label>
+                    <input id="ip_tel" type="tel" name="tel" pattern="^\(\d{2}\)\s\d{5}-\d{4}$"
+                           title="Formato esperado: (11) 99999-9999" required maxlength="15">
+                </div>
+
+                <div class="campo">
+
+
+                    <label for="ip_password">Senha</label>
+                    <input id="ip_password" type="password" name="password"
+                           placeholder="Senha segura"
+                           title="Mínimo 8 caracteres, incluindo letra, número e símbolo" required
+                           minlength="8" maxlength="50">
+                </div>
+
+
+                <input type="submit" value="Registrar"></input>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="js/register.js"></script>
+</body>
+
+</html>

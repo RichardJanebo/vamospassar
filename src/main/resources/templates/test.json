@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Os estilos de interação são as formas com as quais os usuários interagem com a interface, definem as ações dos usuários e da interface. Elas podem ser orientadas pela ação direta do usuário na interface ou pelo objeto da interface que exige uma ação do usuário. Observe a figura abaixo e identifique qual é o principal estilo de interação do usuário com o jogo na televisão.   Fonte: https://www.shutterstock.com/pt/image-photo/san-francisco-february-23-unidentified-video-74533243Qual é o estilo de interação representado na imagem acima?"
+  },
+  {
+    "question": "A prototipação de interfaces digitais pode ser elaborada com materiais físicos, como papel, e também por meio de softwares digitais, que permitem, inclusive tornar o protótipo funcional, simulando seu uso real.Quais ferramentas abaixo são softwares digitais que permitem desenvolver protótipos visuais e funcionais de interface digital?"
+  },
+  {
+    "question": "Em uma avaliação heurística é recomendado que os avaliadores executem a avaliação primeiramente de forma individual e posteriormente em grupo.Por que a recomendação é dividir a avaliação desta forma?"
+  },
+  {
+    "question": "Uma das tecnologias assistivas utilizadas por pessoas com baixa ou nenhuma visão são os leitores de tela. Julgue as afirmativas a seguir, a respeito do que deve ser feito ao projetar interfaces para os leitores de tela, em (V) Verdadeira ou (F) Falsa. ( ) espalhar o conteúdo por toda a página da interface ( ) forçar o uso do mouse ( ) escrever links e títulos auto-descritivos ( ) descrever as imagens e fornecer transcrições para os vídeosAssinale a alternativa que apresenta a sequência CORRETA."
+  },
+  {
+    "question": "Os testes de usabilidade podem ser classificados em relação ao local e à maneira como são realizados. Analise a classificação dos formatos de testes de usabilidade na coluna A e identifique suas respectivas descrições na coluna B.       COLUNA A   COLUNA B     I. Teste de usabilidade presencial em laboratório  1. O moderador e o participante não estão fisicamente no mesmo local. O teste é realizado de forma autônoma pelo participante, de acordo com a sua conveniência, a partir de instruções que ele recebe de um software que irá orientá-lo durante toda a sessão.     II. Teste de usabilidade presencial em campo  2. O moderador e o participante estão fisicamente no mesmo local, que pode ser o laboratório de usabilidade ou um ambiente especialmente preparado para a realização dos testes.    III. Teste de usabilidade remoto com moderador  3. O moderador e o participante não estão fisicamente no mesmo local. O teste é realizado por vídeo ou áudio conferência, na qual o moderador orienta o participante durante toda a sessão.      IV. Teste de usabilidade remoto sem moderador   4. O moderador e o participante estão fisicamente no mesmo local, que é contexto real de uso do produto, por exemplo, ao ar livre, dentro de uma loja, na casa ou no local de trabalho do usuário.    Assinale a alternativa que apresenta a associação correta entre as colunas."
+  }
+]
