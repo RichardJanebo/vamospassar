@@ -1,8 +1,9 @@
 package com.vamospassar.respostabot.mapper;
 
-import com.vamospassar.respostabot.configurations.StandardizeText;
+import com.vamospassar.respostabot.configuration.StandardizeText;
 import com.vamospassar.respostabot.dto.questions.QuestionPostDto;
-import com.vamospassar.respostabot.model.Question;
+import com.vamospassar.respostabot.model.elastic.QuestionDocument;
+import com.vamospassar.respostabot.model.jpa.Question;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -36,6 +37,16 @@ public class QuestionMapper {
                 .question(standardizeText.standardizeText(questionPostDto.question()))
                 .response(standardizeText.standardizeText(questionPostDto.response()))
                 .build();
+
+
+    }
+
+    public QuestionDocument toDocument(Question question) {
+        QuestionDocument doc = new QuestionDocument();
+        doc.setId(question.getId().toString());
+        doc.setQuestion(question.getQuestion());
+        doc.setResponse(question.getResponse());
+        return doc;
     }
 
 

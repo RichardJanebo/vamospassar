@@ -11,9 +11,30 @@ document.getElementById("ip_tel").addEventListener("input", (event) => {
     event.target.value = input;
 });
 
-document.getElementById("my_form").addEventListener('submit', (event) => {
+document.getElementById("my_form").addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const submitButton = document.getElementById("submit_button");
+    const defaultButtonText = "Registrar";
+
+    // Função para ativar loading
+    const setLoading = () => {
+        submitButton.disabled = true;
+        submitButton.value = "Registrando... ⏳";
+    };
+
+
+    // Função para resetar botão
+    const resetButton = (text = defaultButtonText) => {
+        submitButton.disabled = false;
+        submitButton.value = "Registre-se";
+    };
+
+
+    // Começa loading
+    setLoading();
+
+    // Captura valores
     const name = document.getElementById("ip_name").value.trim();
     const email = document.getElementById("ip_email").value.trim();
     const password = document.getElementById("ip_password").value.trim();
@@ -21,35 +42,47 @@ document.getElementById("my_form").addEventListener('submit', (event) => {
 
     const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+    // Validação simples
+    if (!name || !email || !number_cell || !password) {
+        alert("Todos os campos devem ser preenchidos.");
+        resetButton();
+        return;
+    }
 
-    if (!name) return alert("O campo Nome não pode estar vazio.");
-    if (!email) return alert("O campo Email não pode estar vazio.");
-    if (!number_cell) return alert("O campo Telefone não pode estar vazio.");
-    if (!password) return alert("O campo Senha não pode estar vazio.");
+    if (!isEmailValid(email)) {
+        alert("Formato de email inválido.");
+        resetButton();
+        return;
+    }
 
-    if (!isEmailValid(email)) return alert("Formato de email inválido.");
+    try {
+        const response = await fetch("http://localhost:8080/authentication/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                name: name,
+                number_cell: number_cell
+            })
+        });
+
+        if (response.ok) {
+            submitButton.value = "✅ Registrado!";
+
+            window.location.href = "http://localhost:8080/login"
 
 
+        } else {
+            const error = await response.text();
+            alert("Erro ao registrar usuário: " + error);
+            resetButton();
+        }
 
-    fetch("http://localhost:8080/authentication/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-            name: name,
-            number_cell: number_cell
-        })
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log(response.json()
-                )
-            } else {
-                alert("Erro ao registrar usuário.");
-            }
-        })
-        .catch(() => alert("Erro de conexão com o servidor."));
+    } catch (error) {
+        alert("Erro de conexão com o servidor.");
+        resetButton();
+    }
 });

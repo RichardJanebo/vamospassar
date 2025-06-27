@@ -1,4 +1,4 @@
-package com.vamospassar.respostabot.model;
+package com.vamospassar.respostabot.model.jpa;
 
 import jakarta.persistence.*;
 

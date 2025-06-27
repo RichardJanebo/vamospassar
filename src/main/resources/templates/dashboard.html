@@ -46,6 +46,42 @@
     </div>
 
 </main>
+<!-- Botão de Assinatura -->
+<button id="subscribe-btn" class="shine-button">Assinar Plano</button>
+
+<!-- Modal de Atenção -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h3>Plano Prata - R$ 9,90</h3>
+        <p>⚠️ Atenção: Use o mesmo e-mail que você usou para se cadastrar na Unibot.</p>
+        <button id="checkout">Ir para o checkout</button>
+        <button id="cancel-btn">Cancelar</button>
+    </div>
+</div>
+
+
+<script>
+    const subscribeBtn = document.getElementById("subscribe-btn");
+    const modal = document.getElementById("modal");
+    const cancelBtn = document.getElementById("cancel-btn");
+    const checkout = document.getElementById("checkout");
+
+
+
+    subscribeBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+
+    });
+
+    checkout.addEventListener("click", () => {
+      window.location.href = "https://pay.kiwify.com.br/B1Ud4bG";
+    })
+
+    cancelBtn.addEventListener("click", () => {
+
+      modal.style.display = "none";
+    });
+</script>
 
 <script src="js/dashboard-user.js"></script>
 </body>

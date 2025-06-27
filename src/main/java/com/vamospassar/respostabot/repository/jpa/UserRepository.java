@@ -1,6 +1,6 @@
-package com.vamospassar.respostabot.repository;
+package com.vamospassar.respostabot.repository.jpa;
 
-import com.vamospassar.respostabot.model.User;
+import com.vamospassar.respostabot.model.jpa.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
+
     Optional<User> findByEmail(String email);
 }

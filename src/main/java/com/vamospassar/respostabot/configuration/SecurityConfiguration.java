@@ -1,4 +1,4 @@
-package com.vamospassar.respostabot.configurations;
+package com.vamospassar.respostabot.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +18,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfiguration {
     private final SecurityFilter securityFilter;
+    private final Oauth2AuthenticationSuccessHandler oauth2AuthenticationSuccessHandler;
 
-    public SecurityConfiguration(SecurityFilter securityFilter) {
+    public SecurityConfiguration(SecurityFilter securityFilter , Oauth2AuthenticationSuccessHandler oauth2AuthenticationSuccessHandler) {
         this.securityFilter = securityFilter;
+        this.oauth2AuthenticationSuccessHandler = oauth2AuthenticationSuccessHandler;
     }
 
     @Bean
@@ -31,8 +33,8 @@ public class SecurityConfiguration {
                 .sessionManagement(sesion -> sesion.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize ->
                         authorize
-                                .requestMatchers(HttpMethod.POST, "/admin/**").hasRole("ADMIN")
-                                .requestMatchers("/fonts/**","/style/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
+//                                .requestMatchers(HttpMethod.POST, "/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/fonts/**", "/style/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/authentication/register").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/authentication/login").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/login").permitAll()
@@ -41,7 +43,13 @@ public class SecurityConfiguration {
                                 .requestMatchers(HttpMethod.POST, "/api/webhook/kiwify").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .oauth2Login(auth -> auth
+                        .loginPage("/login")
+                        .successHandler(oauth2AuthenticationSuccessHandler))
+                .exceptionHandling(auth -> auth
+                        .authenticationEntryPoint((request, response, authException) -> response.sendRedirect("/login")))
                 .build();
+
 
     }
 

@@ -1,4 +1,4 @@
-package com.vamospassar.respostabot.configurations;
+package com.vamospassar.respostabot.configuration;
 
 import com.vamospassar.respostabot.service.AuthorizationService;
 import com.vamospassar.respostabot.service.TokenService;
@@ -31,12 +31,22 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if (getEndpoints(request)) {
-            String tokenFromRequest = getTokenFromRequest(request);
-            String userEmail = tokenService.validateToken(tokenFromRequest);
-            UserDetails user = authorizationService.loadUserByUsername(userEmail);
-            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), null, user.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
 
+            String tokenFromRequest = getTokenFromRequest(request);
+
+            if(tokenFromRequest != null) {
+                try {
+                String userEmail = tokenService.validateToken(tokenFromRequest);
+
+                if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null){
+                UserDetails user = authorizationService.loadUserByUsername(userEmail);
+                Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), null, user.getAuthorities());
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+                }catch (Exception e){
+                    SecurityContextHolder.clearContext();
+                }
+            }
         }
 
         filterChain.doFilter(request, response);

@@ -2,7 +2,7 @@ package com.vamospassar.respostabot.controller.admin;
 
 import com.vamospassar.respostabot.dto.questions.QuestionPostDto;
 import com.vamospassar.respostabot.mapper.QuestionMapper;
-import com.vamospassar.respostabot.model.Question;
+import com.vamospassar.respostabot.model.jpa.Question;
 import com.vamospassar.respostabot.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

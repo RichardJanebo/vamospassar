@@ -1,4 +1,6 @@
 package com.vamospassar.respostabot.dto.questions;
 
-public record QuestionDto(String question){
+import java.util.Map;
+
+public record QuestionDto(String question, Map<String,String> alternatives){
 }

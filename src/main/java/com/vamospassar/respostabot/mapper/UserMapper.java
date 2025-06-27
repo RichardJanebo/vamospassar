@@ -2,7 +2,7 @@ package com.vamospassar.respostabot.mapper;
 
 import com.vamospassar.respostabot.dto.UserRegisterPostDto;
 import com.vamospassar.respostabot.enums.Role;
-import com.vamospassar.respostabot.model.User;
+import com.vamospassar.respostabot.model.jpa.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

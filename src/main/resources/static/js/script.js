@@ -1,3 +1,8 @@
+const btn_google = document.getElementById("btn_login_google");
+
+btn_google.addEventListener('click',()=>{
+    window.location.href="http://localhost:8080/oauth2/authorization/google"
+})
 document.getElementById("my_form").addEventListener('submit', async (event) => {
     event.preventDefault();
     const email = document.getElementById("ip_email").value;
@@ -14,13 +19,19 @@ document.getElementById("my_form").addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
+
             localStorage.setItem("token", data.token);
+            alert(data)
 
-            window.location.href = "/dashboard";
-
+            if (data.redirectURL) {
+                window.location.href = data.redirectURL;
+            } else {
+                window.location.href = "/dashboard";
+            }
         } else {
             console.error("Login inválido");
         }
+
     } catch (err) {
         alert("Falha na requisição");
         console.error(err);

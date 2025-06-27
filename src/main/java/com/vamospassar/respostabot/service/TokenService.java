@@ -4,7 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.vamospassar.respostabot.model.User;
+import com.vamospassar.respostabot.exception.UserNotFoundException;
+import com.vamospassar.respostabot.model.jpa.User;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -18,6 +19,7 @@ public class TokenService {
     private final String INSSUER = "login-api";
 
     public String generateToken(User user) {
+        if(user.getEmail() == null) throw new  UserNotFoundException();
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET);
 

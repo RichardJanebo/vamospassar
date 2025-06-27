@@ -5,7 +5,7 @@ import com.vamospassar.respostabot.dto.LoginResponseDto;
 import com.vamospassar.respostabot.dto.UserLoginRequestDto;
 import com.vamospassar.respostabot.dto.UserRegisterPostDto;
 import com.vamospassar.respostabot.mapper.UserMapper;
-import com.vamospassar.respostabot.model.User;
+import com.vamospassar.respostabot.model.jpa.User;
 import com.vamospassar.respostabot.service.TokenService;
 import com.vamospassar.respostabot.service.UserService;
 import jakarta.servlet.http.Cookie;
@@ -17,8 +17,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 @CrossOrigin("*")
 @RestController
