@@ -1,6 +1,7 @@
 package com.vamospassar.respostabot.service;
 
 import com.vamospassar.respostabot.configuration.StandardizeText;
+import com.vamospassar.respostabot.contract.QuestionAnswerService;
 import com.vamospassar.respostabot.dto.questions.QuestionDto;
 import com.vamospassar.respostabot.exception.FreeTimeException;
 import com.vamospassar.respostabot.exception.QuestionNotFoundException;
@@ -28,7 +29,7 @@ public class QuestionService {
     private final StandardizeText standardizeText;
     private final UserService userService;
     private final QuestionElasticRepository questionElasticRepository;
-    private final AiQuestionAnswerService aiQuestionAnswerService;
+    private final QuestionAnswerService aiQuestionAnswerService;
     private final AlternativeRepository alternativeRepository;
 
     public QuestionService(QuestionRepository questionRepository,
@@ -129,7 +130,7 @@ public class QuestionService {
                 response.add(index + " " + question1.getResponse());
 
             } else {
-                String responseIa = aiQuestionAnswerService.findQuestionInAI(questionFull);
+                String responseIa = aiQuestionAnswerService.findQuestion(questionFull);
 
 
                 response.add(index + " " + responseIa);

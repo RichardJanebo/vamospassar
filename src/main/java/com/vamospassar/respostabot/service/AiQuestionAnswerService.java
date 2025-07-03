@@ -1,5 +1,6 @@
 package com.vamospassar.respostabot.service;
 
+import com.vamospassar.respostabot.contract.QuestionAnswerService;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class AiQuestionAnswerService {
+public class AiQuestionAnswerService implements QuestionAnswerService {
     private ChatLanguageModel chatLanguageModel;
 
     private Environment env;
@@ -24,7 +25,7 @@ public class AiQuestionAnswerService {
         this.env = env;
     }
 
-    public String findQuestionInAI(Map<String, Map<String, String>> question) {
+    public String findQuestion(Map<String, Map<String, String>> question) {
 
         PromptTemplate promptTemplate = PromptTemplate.from(
                 "Estou realizando uma prova e preciso da sua ajuda com a resposta. " +
